@@ -1,7 +1,13 @@
 # My Project
 
-This project frontend is built with **React.js 19** and **CSS**.  
+Task Management App
 
+This is a simple Task Management Application built with React and Redux. It allows users to manage their tasks efficiently, including adding tasks. The app stores data in the browser using Local Storage for persistence.
+
+React for building the user interface.
+Redux for state management.
+Local Storage for data persistence.
+use toast for show messages.
 
 
    ```bash
