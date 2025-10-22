@@ -6,38 +6,15 @@ export const TaskFiltering = (props: {
 }) => {
   const { filter, setFilter } = props;
 
+  const options = ["All", "Active", "Completed"];
+
   return (
-    <>
-      <label>
-        <input
-          type="radio"
-          name="filter"
-          value="All"
-          checked={filter === "All"}
-          onChange={() => setFilter("All")}
-        />
-        All
-      </label>
-      <label style={{ marginLeft: "10px" }}>
-        <input
-          type="radio"
-          name="filter"
-          value="Active"
-          checked={filter === "Active"}
-          onChange={() => setFilter("Active")}
-        />
-        Active
-      </label>
-      <label style={{ marginLeft: "10px" }}>
-        <input
-          type="radio"
-          name="filter"
-          value="Completed"
-          checked={filter === "Completed"}
-          onChange={() => setFilter("Completed")}
-        />
-        Completed
-      </label>
-    </>
+    <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+      {options.map((item) => (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      ))}
+    </select>
   );
 };

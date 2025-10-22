@@ -7,14 +7,12 @@ export const SearchBar = (props: {
   const { search, setSearch } = props;
 
   return (
-    <>
-      <input
-        type="text"
-        placeholder="Search by title or description..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        style={{ padding: "5px", width: "250px", marginRight: "10px" }}
-      />
-    </>
+    <input
+      type="text"
+      placeholder="Search by title or description..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+      id="input-search"
+    />
   );
 };

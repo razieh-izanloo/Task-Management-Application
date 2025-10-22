@@ -10,18 +10,17 @@ export const TaskSorting = (props: {
     { value: "date", title: "Newest to oldest" },
     { value: "priority", title: "Priority (High to Low)" },
   ];
-  
+
   return (
-    <select
-      style={{ marginLeft: "20px" }}
-      value={sort}
-      onChange={(e) => setSort(e.target.value as "date" | "priority")}
-    >
-      {options.map((item) => (
-        <option key={item.value} value={item.value}>
-          {item.title}
-        </option>
-      ))}
-    </select>
+    <div className="sort">
+      <span>sort:</span>
+      <select value={sort} onChange={(e) => setSort(e.target.value)}>
+        {options.map((item) => (
+          <option key={item.value} value={item.value}>
+            {item.title}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
