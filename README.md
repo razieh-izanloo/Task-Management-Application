@@ -10,6 +10,7 @@ Local Storage for data persistence.
 use toast for show messages.
 
 
+How to Run:
    ```bash
    npm i
    npm run dev
