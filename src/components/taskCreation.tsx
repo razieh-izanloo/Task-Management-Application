@@ -1,5 +1,8 @@
 import { SyntheticEvent, useState } from "react";
+import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
+import { AppDispatch } from "../redux/store";
+import { addTask } from "../redux/tasksSlice";
 
 export const TaskCreation = () => {
   const [values, setValues] = useState({
@@ -7,6 +10,8 @@ export const TaskCreation = () => {
     description: "",
     priority: "",
   });
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -22,11 +27,7 @@ export const TaskCreation = () => {
       createdAt: new Date(),
     };
 
-    const saved = localStorage.getItem("tasks");
-    const tasks = saved ? JSON.parse(saved) : [];
-    const updatedTasks = [...tasks, newTask];
-
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    dispatch(addTask(newTask));
 
     setValues({
       title: "",

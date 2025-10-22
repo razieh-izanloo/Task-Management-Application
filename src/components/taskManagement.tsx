@@ -1,20 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
 import { Task } from "../types/task";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
+import { toggleTaskStatus } from "../redux/tasksSlice";
 
-export const TaskManagement = (props: {
-  task: Task;
-  tasks: Task[];
-  setTasks: Dispatch<SetStateAction<Task[]>>;
-}) => {
-  const { tasks, task, setTasks } = props;
-
-  const toggleTaskStatus = (id: number) => {
-    const updated = tasks.map((task: any) =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updated);
-    localStorage.setItem("tasks", JSON.stringify(updated));
-  };
+export const TaskManagement = (props: { task: Task }) => {
+  const { task } = props;
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <td
@@ -24,7 +15,7 @@ export const TaskManagement = (props: {
         cursor: "pointer",
         textDecoration: task.completed ? "line-through" : "none",
       }}
-      onClick={() => toggleTaskStatus(task.id)}
+      onClick={() => dispatch(toggleTaskStatus(task.id))}
     >
       {task.title}
     </td>
