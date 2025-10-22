@@ -8,7 +8,7 @@ This project frontend is built with **React.js 19** and **CSS**.
    cd my-app
    npm i
    npm run dev
-
+```
 
 home page
 <img width="375" height="667" alt="image" src="https://github.com/user-attachments/assets/d7af8841-1361-4459-af37-93b7557a9a9e" />
