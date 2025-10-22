@@ -58,6 +58,11 @@ tr:nth-child(even) {
 thead tr {
   background: #858484;
 }
+.wrapper-sort {
+  display: flex;
+  align-items: center;
+  gap:2px;
+}
 
 td {
   max-width: 286px;

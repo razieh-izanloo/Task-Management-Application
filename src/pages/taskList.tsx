@@ -5,6 +5,7 @@ import { SearchBar } from "../components/searchBar";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { toggleTaskStatus } from "../redux/tasksSlice";
+import { Link } from "react-router-dom";
 
 export const TaskList = () => {
   const [filter, setFilter] = useState<string>("All");
@@ -47,7 +48,12 @@ export const TaskList = () => {
         <SearchBar search={search} setSearch={setSearch} />
         <div className="flex">
           <TaskFiltering filter={filter} setFilter={setFilter} />
-          <TaskSorting sort={sort} setSort={setSort} />
+          <div className="wrapper-sort">
+            <TaskSorting sort={sort} setSort={setSort} />
+            <Link to="/taskCreation">
+              <img src="/add.svg" width="15px" />
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -73,7 +79,7 @@ export const TaskList = () => {
                       task.completed ? "text-decoration-line" : ""
                     }`}
                   >
-                     <td>{task.title}</td>
+                    <td>{task.title}</td>
                     <td>{task.description}</td>
                     <td>{task.priority}</td>
                     <td onClick={() => dispatch(toggleTaskStatus(task.id))}>
